@@ -26,10 +26,16 @@
       }
 
       section#nav {
-        height: 50px;
+        height: 40px;
+        border-bottom: medium solid;
       }
+
       section#nav h1, form, p {
         display: inline;
+      }
+
+      section#nav h1 {
+        padding: 5px;
       }
 
       p#old {
@@ -40,6 +46,7 @@
         width: 100%;
         height:100%;
         min-height:100%;
+	border: 0px;
       }
  
     </style>
@@ -64,14 +71,15 @@
     <section id="nav">
       <h1>Rust Documentation</h1>
 
+      <p>for: <p>
       <form>
         <select id="options">
           <option value="http://static-rust-lang-org.s3-website-us-west-1.amazonaws.com/doc/stable/std/index.html">stable</option>
           <option value="http://static-rust-lang-org.s3-website-us-west-1.amazonaws.com/doc/beta/std/index.html">beta</option>
           <option value="http://static-rust-lang-org.s3-website-us-west-1.amazonaws.com/doc/nightly/std/index.html">nightly</option>
         </select>
-    <p id="old">You are viewing old docs.<p>
       </form>
+      <p id="old">These docs are not from the latest release.<p>
     </section>
     
     <section id="rest" class="fill">
