@@ -1,0 +1,14 @@
+[package]
+authors = ["Steve Klabnik <steve@steveklabnik.com>"]
+name = "contributors"
+version = "0.1.0"
+
+[dependencies]
+futures = "0.1.7"
+
+[dependencies.handlebars]
+version = "0.24.1"
+
+[dependencies.hyper]
+branch = "tokio"
+git = "https://github.com/hyperium/hyper"

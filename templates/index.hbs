@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Rust Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      html, body {
+          height: 100%;
+          margin: 0;
+          overflow: hidden;
+      }
+
+      .container {
+        height: 100%;
+      }
+
+      body {
+        line-height: 1.6;
+        font-size: 18px;
+        color: #444;
+      }
+
+      h1, h2, h3 {
+        line-height: 1.2;
+      }
+
+      section#nav {
+        height: 50px;
+      }
+      section#nav h1, form, p {
+        display: inline;
+      }
+
+      p#old {
+        visibility: hidden;
+      }
+
+      .fill, iframe {
+        width: 100%;
+        height:100%;
+        min-height:100%;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        document.getElementById("options").onchange = function() {
+	  var option = document.getElementById("options")[this.selectedIndex];
+
+    	  document.getElementById("iframe").src = option.value;
+
+	  if(option.text === "stable") {
+	    document.getElementById("old").style.visibility = "hidden";
+	  } else {
+	    document.getElementById("old").style.visibility = "visible";
+	  }
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <section id="nav">
+      <h1>Rust Documentation</h1>
+
+      <form>
+        <select id="options">
+          <option value="http://static-rust-lang-org.s3-website-us-west-1.amazonaws.com/doc/stable/std/index.html">stable</option>
+          <option value="http://static-rust-lang-org.s3-website-us-west-1.amazonaws.com/doc/beta/std/index.html">beta</option>
+          <option value="http://static-rust-lang-org.s3-website-us-west-1.amazonaws.com/doc/nightly/std/index.html">nightly</option>
+        </select>
+	<p id="old">You are viewing old docs.<p>
+      </form>
+    </section>
+
+    <section id="rest">
+      <iframe id="iframe" class="fill" src="http://static-rust-lang-org.s3-website-us-west-1.amazonaws.com/doc/stable/std/index.html"></iframe>
+    </section>
+  </body>
+</html>
