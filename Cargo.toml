@@ -1,6 +1,6 @@
 [package]
 authors = ["Steve Klabnik <steve@steveklabnik.com>"]
-name = "contributors"
+name = "rust-docs"
 version = "0.1.0"
 
 [dependencies]
