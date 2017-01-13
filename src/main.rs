@@ -1,20 +1,21 @@
 extern crate futures;
+extern crate handlebars;
 extern crate hyper;
 
-use hyper::{Get, StatusCode};
-use hyper::header::ContentType;
-use hyper::server::{Server, Service, Request, Response};
+use std::env;
 use std::collections::BTreeMap;
 use std::fs::File;
 use std::io::prelude::*;
 
-extern crate handlebars;
 use handlebars::Handlebars;
 
-#[derive(Clone, Copy)]
-struct Echo;
+use hyper::{Get, StatusCode};
+use hyper::header::ContentType;
+use hyper::server::{Server, Service, Request, Response};
 
-impl Service for Echo {
+struct Docs;
+
+impl Service for Docs {
     type Request = Request;
     type Response = Response;
     type Error = hyper::Error;
@@ -49,12 +50,15 @@ impl Service for Echo {
 
 
 fn main() {
-    let addr = "127.0.0.1:1337".parse().unwrap();
+     let addr = format!("0.0.0.0:{}", env::args().nth(1).unwrap_or(String::from("1337"))).parse().unwrap();
+
     let (listening, server) = Server::standalone(|tokio| {
         Server::http(&addr, tokio)?
-            .handle(|| Ok(Echo), tokio)
+            .handle(|| Ok(Docs), tokio)
     }).unwrap();
+
     println!("Listening on http://{}", listening);
+
     server.run();
 }
 
