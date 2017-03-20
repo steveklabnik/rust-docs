@@ -4,11 +4,8 @@ name = "rust-docs"
 version = "0.1.0"
 
 [dependencies]
-futures = "0.1.7"
+dotenv = "0.9.0"
+futures = "0.1.11"
 
-[dependencies.handlebars]
-version = "0.24.1"
-
-[dependencies.hyper]
-branch = "tokio"
-git = "https://github.com/hyperium/hyper"
+[dependencies.sparkles]
+git = "https://github.com/steveklabnik/sparkles"
